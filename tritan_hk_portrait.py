@@ -6,7 +6,7 @@ highlight = "ffdcdc"  # color for corner squares
 width = int(input("Width?"))
 height = int(input("Height?"))
 
-arcade.open_window(width, height, "Lindy Huynh")
+arcade.open_window(width, height, "Hollow Knight Portrait")
 arcade.set_background_color(arcade.color_from_hex_string(highlight))
 counter = 0
 # PARAMETRICS
@@ -22,7 +22,7 @@ x_pos = round(width/3)  # these are complete eyeball estimates so they may need 
 y_pos = round(height/1.325)  # these are complete eyeball estimates so they may need adjustment in the future
 p_size = round(width/85)
 # loop size
-loops = round((height*width)/100)
+loops = round((height*width)/50)
 
 arcade.start_render()
 for x in range(loops): # background
@@ -35,13 +35,13 @@ for x in range(loops): # background
         smixer = random.randint(1, width)
         smixer2 = random.randint(1, height)
         color = random.choice(palette)
-        arcade.draw_rectangle_outline(smixer, smixer2, square_size, square_size, arcade.color_from_hex_string(color), 10)
+        arcade.draw_rectangle_outline(smixer, smixer2, square_size, square_size, arcade.color_from_hex_string(color), square_size/6.75)
         # crosses in boxes to make them look like crates
         left = smixer - (square_size/2); right = smixer + (square_size/2)  # left and right coords for lines
         top = smixer2 + (square_size/2); bot = smixer2 - (square_size/2)  # top and bottom coords for lines
 
-        arcade.draw_line(left, top, right, bot, arcade.color_from_hex_string(color), 10)
-        arcade.draw_line(right, top, left, bot, arcade.color_from_hex_string(color), 10)
+        arcade.draw_line(left, top, right, bot, arcade.color_from_hex_string(color), square_size/6.75)
+        arcade.draw_line(right, top, left, bot, arcade.color_from_hex_string(color), square_size/6.75)
 arcade.draw_rectangle_filled(corner, corner, corner, corner, arcade.color_from_hex_string(highlight))
 arcade.draw_rectangle_filled((width-corner), (height-corner), corner, corner, arcade.color_from_hex_string(highlight))  # corner squares
 

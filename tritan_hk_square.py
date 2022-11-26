@@ -4,7 +4,7 @@ palette = ["dd4444", "f48080", "2d676f", "194b4f"]  # put colors that you want t
 highlight = "ffdcdc"  # color for corner squaree
 
 size = int(input("How many pixels would you like it to be?"))
-arcade.open_window(size, size, "Lindy Huynh")
+arcade.open_window(size, size, "Hollow Knight")
 arcade.set_background_color(arcade.color_from_hex_string(highlight))
 counter = 0
 # PARAMETRICS
@@ -19,9 +19,10 @@ corner = round(size/25)
 x_pos = round(size/3.5)  # these are complete eyeball estimates so they may need adjustment in the future
 y_pos = round(size/1.25)  # these are complete eyeball estimates so they may need adjustment in the future
 p_size = round(size/85)
+loops = round(size*size/50)
 
 arcade.start_render()
-for x in range(2800): # background
+for x in range(loops): # background
     cs = random.randint(minsize, maxsize)
     mixer = random.randint(1, size)
     mixer2 = random.randint(1, size)
@@ -31,13 +32,13 @@ for x in range(2800): # background
         smixer = random.randint(1, size)
         smixer2 = random.randint(1, size)
         color = random.choice(palette)
-        arcade.draw_rectangle_outline(smixer, smixer2, square_size, square_size, arcade.color_from_hex_string(color), 10)
+        arcade.draw_rectangle_outline(smixer, smixer2, square_size, square_size, arcade.color_from_hex_string(color), square_size/6.75)
         # crosses in boxes to make them look like crates
         left = smixer - (square_size/2); right = smixer + (square_size/2)  # left and right coords for lines
         top = smixer2 + (square_size/2); bot = smixer2 - (square_size/2)  # top and bottom coords for lines
 
-        arcade.draw_line(left, top, right, bot, arcade.color_from_hex_string(color), 10)
-        arcade.draw_line(right, top, left, bot, arcade.color_from_hex_string(color), 10)
+        arcade.draw_line(left, top, right, bot, arcade.color_from_hex_string(color), square_size/6.75)
+        arcade.draw_line(right, top, left, bot, arcade.color_from_hex_string(color), square_size/6.75)
 arcade.draw_rectangle_filled(corner, corner, corner, corner, arcade.color_from_hex_string(highlight))
 arcade.draw_rectangle_filled((size-corner), (size-corner), corner, corner, arcade.color_from_hex_string(highlight))  # corner squares
 
