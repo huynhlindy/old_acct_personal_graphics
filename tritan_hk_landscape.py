@@ -25,7 +25,7 @@ p_size = round(height/85)
 loops = round((height*width)/50)
 
 arcade.start_render()
-for x in range(loops): # background
+for x in range(loops):  # background
     cs = random.randint(minsize, maxsize)
     mixer = random.randint(1, width)
     mixer2 = random.randint(1, height)
@@ -35,7 +35,8 @@ for x in range(loops): # background
         smixer = random.randint(1, width)
         smixer2 = random.randint(1, height)
         color = random.choice(palette)
-        arcade.draw_rectangle_outline(smixer, smixer2, square_size, square_size, arcade.color_from_hex_string(color), square_size/6.75)
+        arcade.draw_rectangle_outline(smixer, smixer2, square_size, square_size, arcade.color_from_hex_string(color),
+                                      square_size/6.75)
         # crosses in boxes to make them look like crates
         left = smixer - (square_size/2); right = smixer + (square_size/2)  # left and right coords for lines
         top = smixer2 + (square_size/2); bot = smixer2 - (square_size/2)  # top and bottom coords for lines
@@ -43,7 +44,8 @@ for x in range(loops): # background
         arcade.draw_line(left, top, right, bot, arcade.color_from_hex_string(color), square_size/6.75)
         arcade.draw_line(right, top, left, bot, arcade.color_from_hex_string(color), square_size/6.75)
 arcade.draw_rectangle_filled(corner, corner, corner, corner, arcade.color_from_hex_string(highlight))
-arcade.draw_rectangle_filled((width-corner), (height-corner), corner, corner, arcade.color_from_hex_string(highlight))  # corner squares
+arcade.draw_rectangle_filled((width-corner), (height-corner), corner, corner, arcade.color_from_hex_string(highlight))
+# corner squares
 
 # actual drawing now
 
